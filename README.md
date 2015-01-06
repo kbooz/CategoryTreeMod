@@ -38,7 +38,7 @@ It 'heavily' uses localStorage, so, please, check your browser's support
     const expand = 'expandir'; // expand text in l18n
   ```
   
-5. __Copy the mod to CategoryTree's modules directory__
+5. __Copy the mod into CategoryTree's modules directory__
 
 __Presto!__
 
