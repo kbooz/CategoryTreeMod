@@ -11,12 +11,11 @@
 
 	const ckey = 'ct-';
 	const expand = 'expand'; // expand text in l18n
-	const lastCat = localStorage.last; // get last category clicked
-
+	const scroll = true;
 
 	function setLast(){ // Set the last clicked label to localStorage
 		$('.CategoryTreeLabel').click(function(e){
-			localStorage.last = $(this).text();
+			localStorage.setItem('last',$(this).text());
 			return true;
 		});
 	}
@@ -43,12 +42,21 @@
 		 * and clean it from localStorage
 		 */
 	 	checkLast: function(){
+	 		var lastCat = localStorage.getItem('last');
+	 		console.log(lastCat);
 			if(lastCat) //check if is not undefined
 			{
 				var found = $("a.CategoryTreeLabel").filter(function(){ return $(this).text() == lastCat;}).addClass("CategoryTreeLabelLast"); //returns finded selectors
 				// Check if the job was done
 				if(found.length>0)
+				{
 					delete localStorage.last;
+					if(scroll)
+					{
+						var topo=found.offset().top;
+						$("div#mw-panel").animate({scrollTop: topo-50}, 10);
+					}
+				}
 			}
 		},
 
