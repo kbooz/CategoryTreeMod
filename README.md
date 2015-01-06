@@ -40,6 +40,13 @@ It 'heavily' uses localStorage, so, please, check your browser's support
   
 5. __Copy the mod into CategoryTree's modules directory__
 
+6. __Edit Mediawiki:Common.css__: Add and customize this class:
+
+ ```css
+ .CategoryTreeLabelLast {font-weight: bold; }
+ ```
+ 
+
 __Presto!__
 
 ##To-do
